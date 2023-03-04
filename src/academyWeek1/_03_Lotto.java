@@ -11,7 +11,7 @@ public class _03_Lotto {
         int k = 0;
         int i = 0;
         while (true) {
-            int rand = (int) (Math.random() * 45) + 1;
+            int rand = (int) (Math.random() * 6) + 1;
             for (i = 0; i < 6; i++) {
                 if (rand == lotto[i]) {
                     break;
