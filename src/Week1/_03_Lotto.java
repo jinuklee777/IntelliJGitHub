@@ -1,7 +1,6 @@
-package academyWeek1;
+package Week1;
 
 import java.util.Arrays;
-import java.util.Random;
 
 // 앞에서 배운 난수 발생과 반복문, 조건문을 통해 중복되는 번호없이 1~45 까지의 숫자 중 6개의 숫자를 랜덤추출하고
 // 콘솔에 출력해보세요.

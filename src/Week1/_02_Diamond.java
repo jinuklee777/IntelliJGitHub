@@ -1,4 +1,4 @@
-package academyWeek1;
+package Week1;
 
 public class _02_Diamond {
     public static void main(String[] args) {
