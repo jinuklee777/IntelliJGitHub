@@ -7,8 +7,8 @@ public class MapExample {
     public static void main(String[] args) {
         Map<String, Integer> map = new HashMap<>();
         map.put("이진욱", 20);
-        map.put("이유빈", 21);
-        map.put("지선의", 22);
+        map.put("허수", 21);
+        map.put("김건부", 22);
         map.put("이진욱", 21);
         System.out.println(map);
         System.out.println(map.get("이진욱"));

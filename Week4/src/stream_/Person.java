@@ -1,6 +1,11 @@
 package stream_;
 
-public class Person {
+import java.io.Serializable;
+
+public class Person implements Serializable {
+
+    private static final long serialVersionUID = 5296081940199618979L;
+
     private String name;
     private int age;
 
