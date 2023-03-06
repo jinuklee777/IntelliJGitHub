@@ -114,7 +114,7 @@ public class CustomerManager {
     }
 
     private static void readCustomer(Customer cus) {
-        if(cus == null) {
+        if (cus == null) {
             System.out.println("메뉴로 돌아갑니다.");
             return;
         }
@@ -123,19 +123,35 @@ public class CustomerManager {
         System.out.println("-------------------------------------------");
     }
 
+//    private static void readCustomerAll() {
+//        Iterator<Customer> readAll = cusList.iterator();
+//        while (readAll.hasNext()) {
+//            System.out.println(readAll.next());
+//        }
+//    }
+//
+//    private static void readCustomerAll2() {
+//        String[] names = new String[cusList.size()];
+//        for (int i = 0; i < cusList.size(); i++) {
+//            names[i] = cusList.get(i).getName();
+//        }
+//        for (int i = 0; i < names.length; i++) {
+//            System.out.println(names[i]);
+//        }
+//    }
+
     private static void readCustomerAll() {
-        Iterator<String> readAll = nameSet.iterator();
-        while(readAll.hasNext()) {
-            System.out.println(readAll.next());
+        for (int i = 0; i < cusList.size(); i++) {
+            System.out.println(cusList.get(i).getName());
         }
     }
 
     private static void updateCustomer(Customer cus) {
-        if(cus == null) {
+        if (cus == null) {
             System.out.println("메뉴로 돌아갑니다.");
             return;
         }
-        System.out.println("이름("+cus.getName()+")");
+        System.out.println("이름(" + cus.getName() + ")");
         System.out.printf("나이(%d) : ", cus.getAge());
         cus.setAge(scan.nextInt());
         System.out.printf("이메일(%s): ", cus.getEmail());
@@ -147,15 +163,15 @@ public class CustomerManager {
     }
 
     private static void deleteCustomer(Customer cus) {
-        if(cus == null) {
+        if (cus == null) {
             System.out.println("메뉴로 돌아갑니다.");
             return;
         }
-        System.out.println(cus.getName()+"님의 정보를 삭제합니다.");
-        for(int i = 0; i<4; i++) {
+        System.out.println(cus.getName() + "님의 정보를 삭제합니다.");
+        for (int i = 0; i < 4; i++) {
             System.out.print(".");
             try {
-            Thread.sleep(1000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -163,22 +179,23 @@ public class CustomerManager {
         cusList.remove(cus);
         System.out.println("삭제가 완료되었습니다.");
     }
+
     private static void saveCustomerData() {
-        try(FileOutputStream fos = new FileOutputStream("cus.txt");
-        ObjectOutputStream oos = new ObjectOutputStream(fos);) {
+        try (FileOutputStream fos = new FileOutputStream("cus.txt");
+             ObjectOutputStream oos = new ObjectOutputStream(fos);) {
             oos.writeObject(cusList);
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     private static void loadCustomerData() {
-        try(FileInputStream fis = new FileInputStream("cus.txt");
-        ObjectInputStream ois = new ObjectInputStream(fis);) {
-            cusList = (List<Customer>)ois.readObject();
-        }catch(FileNotFoundException e) {
+        try (FileInputStream fis = new FileInputStream("cus.txt");
+             ObjectInputStream ois = new ObjectInputStream(fis);) {
+            cusList = (List<Customer>) ois.readObject();
+        } catch (FileNotFoundException e) {
             System.out.println("로드 파일이 없습니다.");
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
